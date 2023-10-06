@@ -7,37 +7,12 @@ WINDOW_SCALE = 2
 
 log = logging.Logger("main", logging.INFO)
 
-def construct_sphere(x, y, z, r, color):
-    return {
-        "x": x,
-        "y": y,
-        "z": z,
-        "r": r,
-        "color": color,
-        "surface":
-        
-    }
+def trace_ray(canvas, camera, x, y):
+    canvas_coordinates = viewport_to_canvas(x, y)
+    #if the ray hits something, do linear algebra magic. else return background
 
-def construct_camera(x, y, z, ax, ay, az):
-    return {
-        "x": x,
-        "y": y,
-        "z": z,
-        "ax": ax,
-        "ay": ay,
-        "az": az
-    }
-
-def ray_trace(canvas, camera):
-    sphere1 = construct_sphere(0, 0, 0, 10, "#FFA0A0")
-    for x in range(int(-WINDOW_WIDTH/2), int(WINDOW_WIDTH/2)):
-        for y in range(int(-WINDOW_HEIGHT/2), int(WINDOW_HEIGHT/2)):
-
-            
-            
-            put_pixel(canvas, x, y, "")
-
-
+def detect_sphere(sphere, ray):
+    print()
 
 def viewport_to_canvas(x, y):
     return {"x": x * WINDOW_SCALE, "y": y * -WINDOW_SCALE, "d": 1}
@@ -65,8 +40,8 @@ def draw_viewport(canvas: tk.Canvas):
 
 
 def render(canvas):
-    ray_trace(canvas, construct_camera(0, 0, 0, 0, 0, 1))
     draw_viewport(canvas)
+    put_pixel(canvas, 20, 20, "#ffffff")
 
 
 if __name__ == "__main__":

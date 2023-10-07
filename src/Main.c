@@ -1,9 +1,13 @@
+#ifndef MAIN
+#define MAIN
+
 #include<stdio.h>
 #include<SDL2/SDL.h>
 
-#define WIDTH 640
-#define HEIGHT 480
-#define SCALE 1
+const int WIDTH = 640;
+const int HEIGHT = 480;
+const int SCALE = 1;
+
 
 
 int main(){
@@ -32,3 +36,4 @@ int main(){
 
    SDL_Quit();
 }
+#endif

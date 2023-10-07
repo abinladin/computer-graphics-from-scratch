@@ -14,7 +14,7 @@ struct Window{
 };
 
 struct Window create_window(int width, int height, int scale);
-void put_pixel(struct Window*, int x, int y);
+void put_pixel(struct Window* window, int x, int y, Uint8 red, Uint8 green, Uint8 blue);
 void event_loop(struct Window* window);
 
 #endif

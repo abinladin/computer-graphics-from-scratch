@@ -1,5 +1,5 @@
 #include"window.h"
-#include"main.c"
+
 void render(struct Window* window);
 
 struct Window create_window(int width, int height, int scale){
@@ -29,11 +29,11 @@ void destroy_window(struct Window* window){
     SDL_Quit();
 }
 
-void put_pixel(struct Window* window, int x, int y){
+void put_pixel(struct Window* window, int x, int y, Uint8 red, Uint8 green, Uint8 blue){
     SDL_SetRenderDrawColor(window->renderer, 0, 0, 0, 255);
     SDL_RenderClear(window->renderer);
 
-    SDL_SetRenderDrawColor(window->renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(window->renderer, red, green, blue, 255);
     SDL_RenderDrawPoint(window->renderer, x, y);
 
     SDL_RenderPresent(window->renderer);
@@ -51,4 +51,8 @@ void event_loop(struct Window* window){
         render(window);
     }
     destroy_window(window);
+}
+
+void render(struct Window* window){
+    put_pixel(window, 50, 50, 255, 255, 255);
 }

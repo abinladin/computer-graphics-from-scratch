@@ -1,5 +1,5 @@
 #include"window.h"
-
+#include"main.c"
 void render(struct Window* window);
 
 struct Window create_window(int width, int height, int scale){
@@ -17,6 +17,7 @@ struct Window create_window(int width, int height, int scale){
     window.renderer = SDL_CreateRenderer(window.window, -1, SDL_RENDERER_ACCELERATED);
     SDL_RenderSetScale(window.renderer, scale, scale);
     printf("Created renderer\n");
+    event_loop(&window);
     return window;
 }
 
@@ -50,8 +51,4 @@ void event_loop(struct Window* window){
         render(window);
     }
     destroy_window(window);
-}
-
-void render(struct Window* window) {
-    put_pixel(window, 50, 50);
 }

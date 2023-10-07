@@ -29,4 +29,4 @@ directories:
 	mkdir -p $(OBJ_DIR) $(BIN_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR) $(BINARY)
+	rm -rf $(OBJ_DIR) $(BIN_DIR)

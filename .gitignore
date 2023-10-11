@@ -3,3 +3,4 @@ Main
 build/
 bin/
 .DS_Store
+.idea/

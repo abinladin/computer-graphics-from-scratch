@@ -59,6 +59,8 @@ void event_loop(struct Window* window){
 void render(struct Window* window){
     SDL_Delay(1000/60);
 
+    put_pixel(window, window->width / 2, window->height / 2, 255, 255, 255);
+
     SDL_RenderPresent(window->renderer);
 }
 

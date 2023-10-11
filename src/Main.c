@@ -6,7 +6,7 @@
 #include"window.h"
 
 int main(){ 
-   struct Window window = create_window(100,100,5);
+   struct Window window = create_window(300,200,4);
 }
 
 

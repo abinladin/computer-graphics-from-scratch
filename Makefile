@@ -5,6 +5,7 @@ LINK_DIRS := -L ./lib/SDL2
 LIBS := -lSDL2
 OPT := -O0
 
+ERROR_FLAGS := -Wall -Wextra
 CFLAGS := $(INCLUDE_DIRS) $(OPT)
 LDFLAGS := $(LINK_DIRS) $(LIBS)
 
@@ -18,6 +19,9 @@ OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 BINARY := $(BIN_DIR)/main
 
 all: directories $(BINARY)
+
+run: directories $(BINARY)
+	./$(BINARY)
 
 $(BINARY): $(OBJS)
 	$(CC) $^ $(LDFLAGS) -o $@

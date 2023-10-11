@@ -29,14 +29,15 @@ void destroy_window(struct Window* window){
     SDL_Quit();
 }
 
-void put_pixel(struct Window* window, int x, int y, Uint8 red, Uint8 green, Uint8 blue){
+void clear_screen(struct Window* window){
     SDL_SetRenderDrawColor(window->renderer, 0, 0, 0, 255);
     SDL_RenderClear(window->renderer);
+}
+
+void put_pixel(struct Window* window, int x, int y, Uint8 red, Uint8 green, Uint8 blue){
 
     SDL_SetRenderDrawColor(window->renderer, red, green, blue, 255);
     SDL_RenderDrawPoint(window->renderer, x, y);
-
-    SDL_RenderPresent(window->renderer);
 }
 
 void event_loop(struct Window* window){
@@ -48,11 +49,19 @@ void event_loop(struct Window* window){
                 quit = 1;
             }
         }
+        clear_screen(window);
         render(window);
     }
     destroy_window(window);
 }
 
+
 void render(struct Window* window){
-    put_pixel(window, 50, 50, 255, 255, 255);
+    SDL_Delay(1000/60);
+
+    SDL_RenderPresent(window->renderer);
+}
+
+void trace_ray(struct Window* window){
+    
 }
